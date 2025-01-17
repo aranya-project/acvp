@@ -8,7 +8,25 @@ license.workspace = true
 repository.workspace = true
 rust-version.workspace = true
 
-[dependencies]
-
 [lints]
 workspace = true
+
+[features]
+default = [
+	"sha2",
+	"sha3",
+]
+
+sha2 = []
+sha3 = []
+
+[dependencies]
+hex = { version = "0.4", features = ["serde"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
+
+[build-dependencies]
+prettyplease = { verion = "0.2" }
+proc-macro2 = { version = "1" }
+quote = { version = "1" }
+syn = { version = "1" }
